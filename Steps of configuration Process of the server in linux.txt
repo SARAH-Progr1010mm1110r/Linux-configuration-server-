@@ -1,0 +1,82 @@
+
+
+
+sudo apt update
+
+
+sudo apt install apache2
+
+
+#Checking Apache works by typing localhost in search engine
+
+#Configuration Process of the server
+#Configuring firewall:
+
+
+sudo ufw allow ‘Apache’
+
+sudo ufw status
+
+sudo ufw enable
+
+sudo ufw status
+
+sudo systemctl start apache2.service
+
+#Printing Apache status
+
+service apache2 status
+
+#I am made a directory for our html page, our html page is called 
+myHome.html, and configured sarahprogrammer.com.conf page, where defined 
+our server name and other information. After making our site we enabled it 
+by using a2ensite command. Then we reloaded apache to test our page.#
+
+sudo mkdir -p /var/www/sarahprogrammer.com/public_html
+
+cd /var/www
+
+sudo nano /var/www/sarahprogrammer.com/public_html/myHome.html
+
+sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sitesavailable/wijdansaad.com.conf
+
+sudo nano /etc/apache2/sites-available/sarahprogrammer.com.conf
+
+
+sudo a2ensite sarahprogrammer.com.conf
+
+systemctl reload apache2
+
+#In nano file write html code for myHome.html
+
+<html>
+<head>
+<title>MyHome</title>
+</head>
+<body>
+<h1>Hello, welcome to my home</h1>
+</body>
+</html>
+
+
+# 000-default.conf file which we copied to sarahprogrammer.com.conf and changed 
+to suit our new page.
+
+80
+
+#sarahprogrammer.com.conf, i am added ServerName and ServerAlias, and i am
+changed the DocumentRoot and the ServerAdmin from their previous
+default values.
+
+#Then authentication is required before we reload apache
+
+
+
+
+#Finaly Testing the server, by typing (myHome.html) in browser
+
+
+
+
+
+
